@@ -84,9 +84,11 @@
   /* --- hero --- */
   .hero{
     position:relative;min-height:100svh;display:flex;align-items:center;
+    /* Foto placeholder ilustrando o ambiente — substituir por foto real do espaço quando disponível */
     background:
-      radial-gradient(120% 90% at 15% 10%, rgba(176,141,87,.22), transparent 60%),
-      linear-gradient(160deg,#241B16 0%,#33251D 55%,#4A362A 100%);
+      radial-gradient(120% 90% at 15% 10%, rgba(176,141,87,.3), transparent 60%),
+      linear-gradient(160deg, rgba(36,27,22,.88) 0%, rgba(51,37,29,.82) 55%, rgba(74,54,42,.72) 100%),
+      url('https://images.unsplash.com/photo-1761470575018-135c213340eb?fm=jpg&q=80&w=1920&fit=crop&crop=entropy') center/cover no-repeat;
     color:var(--sand);padding:140px 0 90px;overflow:hidden;
   }
   .hero::after{
@@ -408,21 +410,21 @@
         <h2>O que as clientes dizem</h2>
       </div>
       <div class="testi-grid">
-        <!-- SUBSTITUIR pelos depoimentos reais do destaque "Feedback Cliente" (com autorização da cliente) -->
+        <!-- FICTÍCIO — placeholder só para visualização do layout. SUBSTITUIR pelos depoimentos reais do destaque "Feedback Cliente" (com autorização da cliente) antes de sair do modo prévia -->
         <article class="testi-card reveal">
           <div class="stars">★★★★★</div>
-          <p>[ Depoimento real da cliente — colar aqui o texto do print do WhatsApp/Instagram ]</p>
-          <div class="testi-who"><strong>[ Nome da cliente ]</strong>[ Tratamento realizado ]</div>
+          <p>Cheguei bem insegura na primeira avaliação e a Marina me deixou à vontade desde o início. Sinto que finalmente tenho alguém acompanhando de perto, não só um pacote de sessões.</p>
+          <div class="testi-who"><strong>Camila R.</strong>Massagem modeladora</div>
         </article>
         <article class="testi-card reveal">
           <div class="stars">★★★★★</div>
-          <p>[ Depoimento real da cliente ]</p>
-          <div class="testi-who"><strong>[ Nome da cliente ]</strong>[ Tratamento realizado ]</div>
+          <p>O que mais gostei foi não ter recebido uma promessa mirabolante. Me explicaram exatamente o que o tratamento faz e o que não faz, e isso me deu muito mais confiança pra continuar.</p>
+          <div class="testi-who"><strong>Juliana M.</strong>Ozonioterapia</div>
         </article>
         <article class="testi-card reveal">
           <div class="stars">★★★★★</div>
-          <p>[ Depoimento real da cliente ]</p>
-          <div class="testi-who"><strong>[ Nome da cliente ]</strong>[ Tratamento realizado ]</div>
+          <p>Ambiente tranquilo, atendimento no horário e equipe atenciosa em cada retorno. Me sinto à vontade pra tirar qualquer dúvida antes das sessões.</p>
+          <div class="testi-who"><strong>Fernanda A.</strong>Programa Fit — 4 semanas</div>
         </article>
       </div>
     </div>
