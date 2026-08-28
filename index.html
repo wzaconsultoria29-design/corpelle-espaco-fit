@@ -28,7 +28,7 @@
     --max:1120px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scrollbar-color:var(--gold-light) var(--sand-deep);scrollbar-width:thin}
   body{
     font-family:var(--sans);
     color:var(--ink);
@@ -40,17 +40,21 @@
   }
   img{max-width:100%;display:block}
   a{color:inherit}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  .eyebrow{
-    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-    font-weight:500;color:var(--gold);margin-bottom:18px;
+  ::selection{background:var(--gold);color:#fff}
+  a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+    outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;
   }
+  ::-webkit-scrollbar{width:12px}
+  ::-webkit-scrollbar-track{background:var(--sand-deep)}
+  ::-webkit-scrollbar-thumb{background:var(--gold-light);border-radius:10px;border:3px solid var(--sand-deep)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
   h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:-.01em}
   h1{font-size:clamp(2.6rem,6.2vw,4.6rem)}
   h2{font-size:clamp(2rem,4.4vw,3.2rem)}
   h3{font-size:1.4rem}
   p{color:var(--muted)}
   .lead{font-size:1.1rem;max-width:56ch}
+  .ico{flex:none;display:block}
 
   /* --- botão --- */
   .btn{
@@ -89,7 +93,7 @@
       radial-gradient(120% 90% at 15% 10%, rgba(176,141,87,.3), transparent 60%),
       linear-gradient(160deg, rgba(36,27,22,.88) 0%, rgba(51,37,29,.82) 55%, rgba(74,54,42,.72) 100%),
       url('https://images.unsplash.com/photo-1761470575018-135c213340eb?fm=jpg&q=80&w=1920&fit=crop&crop=entropy') center/cover no-repeat;
-    color:var(--sand);padding:140px 0 90px;overflow:hidden;
+    color:var(--sand);padding:150px 0 90px;overflow:hidden;
   }
   .hero::after{
     content:"";position:absolute;inset:auto -10% -30% auto;width:70vw;height:70vw;
@@ -97,17 +101,17 @@
     border-radius:50%;pointer-events:none;
   }
   .hero-inner{position:relative;z-index:2;max-width:760px}
-  .hero h1{color:#fff;margin-bottom:22px}
+  .hero h1{color:#fff;margin-bottom:24px}
   .hero h1 em{font-style:italic;color:var(--gold-light)}
-  .hero p{color:rgba(246,241,234,.78);font-size:1.15rem;max-width:52ch;margin-bottom:36px}
+  .hero p{color:rgba(246,241,234,.82);font-size:1.15rem;max-width:52ch;margin-bottom:36px}
   .hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
   .hero-trust{
-    display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:52px;
+    display:flex;flex-wrap:wrap;gap:16px 34px;margin-top:52px;
     padding-top:26px;border-top:1px solid rgba(246,241,234,.16);
-    font-size:13.5px;color:rgba(246,241,234,.72);
+    font-size:13.5px;color:rgba(246,241,234,.82);
   }
-  .hero-trust span{display:flex;align-items:center;gap:9px}
-  .hero-trust span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-light);flex:none}
+  .hero-trust span{display:flex;align-items:center;gap:10px}
+  .hero-trust .ico{width:15px;height:15px;color:var(--gold-light)}
 
   /* --- seções --- */
   section{padding:100px 0}
@@ -117,24 +121,28 @@
 
   /* --- dor --- */
   .pain{background:var(--sand-deep)}
-  .pain-grid{display:grid;gap:18px;grid-template-columns:1fr}
-  @media(min-width:760px){.pain-grid{grid-template-columns:repeat(2,1fr)}}
-  .pain-item{
-    background:rgba(255,255,255,.6);border:1px solid var(--line);
-    border-radius:14px;padding:24px 26px;display:flex;gap:14px;align-items:flex-start;
+  .pain-layout{display:grid;gap:44px;grid-template-columns:1fr}
+  @media(min-width:880px){.pain-layout{grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}}
+  .pain-lead h2{margin-bottom:18px}
+  .pain-note{
+    margin-top:30px;font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,1.85rem);
+    line-height:1.35;color:var(--ink);max-width:30ch;font-style:italic;
   }
-  .pain-item strong{font-weight:500;color:var(--ink);display:block;font-size:1rem}
-  .pain-item .x{color:var(--gold);font-size:1.2rem;line-height:1.3;flex:none}
-  .pain-close{
-    margin-top:44px;font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);
-    line-height:1.3;color:var(--ink);max-width:26ch;
-  }
-  .pain-close em{font-style:italic;color:var(--gold)}
+  .pain-note em{font-style:italic;color:var(--gold)}
+  .pain-list{list-style:none;border-top:1px solid var(--line)}
+  .pain-list li{display:flex;gap:16px;align-items:flex-start;padding:22px 4px;border-bottom:1px solid var(--line)}
+  .pain-list .ico{width:17px;height:17px;margin-top:5px;color:var(--gold)}
+  .pain-list strong{font-weight:500;color:var(--ink);display:block;font-size:1.02rem;margin-bottom:3px}
 
   /* --- método --- */
-  .steps{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  @media(min-width:860px){.steps{grid-template-columns:repeat(4,1fr)}}
-  .step{background:var(--sand);padding:34px 28px}
+  .steps{list-style:none;display:grid;gap:36px;grid-template-columns:1fr}
+  @media(min-width:860px){.steps{grid-template-columns:repeat(4,1fr);gap:0}}
+  .step{padding:0}
+  @media(min-width:860px){
+    .step{padding-right:28px;border-right:1px solid var(--line)}
+    .step:last-child{border-right:0}
+    .step + .step{padding-left:28px}
+  }
   .step-n{
     font-family:var(--serif);font-size:2.6rem;color:var(--gold-light);
     line-height:1;margin-bottom:16px;display:block;
@@ -147,20 +155,32 @@
   .services h2{color:#fff}
   .services .section-head p{color:rgba(246,241,234,.72)}
   .svc-grid{display:grid;gap:20px;grid-template-columns:1fr}
-  @media(min-width:700px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:700px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
   .svc{
-    border:1px solid rgba(246,241,234,.14);border-radius:16px;padding:32px;
+    border:1px solid rgba(246,241,234,.14);border-radius:16px;padding:30px;
     background:linear-gradient(160deg,rgba(246,241,234,.05),rgba(246,241,234,.01));
     transition:border-color .3s ease, transform .3s ease;
   }
   .svc:hover{border-color:rgba(211,182,131,.5);transform:translateY(-3px)}
-  .svc h3{color:#fff;margin-bottom:12px;font-size:1.45rem}
-  .svc p{color:rgba(246,241,234,.72);font-size:.96rem;margin-bottom:16px}
+  .svc h3{color:#fff;margin-bottom:12px;font-size:1.3rem}
+  .svc p{color:rgba(246,241,234,.72);font-size:.95rem;margin-bottom:16px}
   .svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
   .svc li{
     font-size:12.5px;padding:6px 13px;border-radius:100px;
     background:rgba(211,182,131,.14);color:var(--gold-light);
   }
+  .svc--feature{
+    margin-top:20px;padding:40px;display:grid;gap:28px;grid-template-columns:1fr;align-items:center;
+    border-color:rgba(211,182,131,.45);
+    background:linear-gradient(150deg,rgba(211,182,131,.16),rgba(246,241,234,.02));
+  }
+  @media(min-width:760px){.svc--feature{grid-template-columns:1.3fr 1fr}}
+  .svc-tag{
+    display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--espresso);background:var(--gold-light);padding:6px 14px;border-radius:100px;
+    margin-bottom:14px;font-weight:600;
+  }
+  .svc--feature h3{font-size:1.7rem}
 
   /* --- sobre --- */
   .about-grid{display:grid;gap:48px;align-items:center;grid-template-columns:1fr}
@@ -172,9 +192,14 @@
     color:rgba(246,241,234,.4);font-size:13px;text-align:center;padding:24px;
     border:1px solid var(--line);
   }
+  .about-name{
+    font-family:var(--serif);font-style:italic;font-size:1.3rem;
+    color:var(--gold);margin:-6px 0 22px;
+  }
+  .about .quote-ico{width:26px;height:26px;color:var(--gold-light);margin-bottom:14px}
   .about blockquote{
     font-family:var(--serif);font-size:1.5rem;line-height:1.4;color:var(--ink);
-    border-left:2px solid var(--gold);padding-left:22px;margin:28px 0;font-style:italic;
+    margin:0 0 28px;font-style:italic;max-width:38ch;
   }
   .creds{list-style:none;display:grid;gap:12px;margin-top:26px}
   .creds li{display:flex;gap:12px;align-items:flex-start;font-size:.96rem;color:var(--muted)}
@@ -182,16 +207,24 @@
 
   /* --- depoimentos --- */
   .testi{background:var(--sand-deep)}
-  .testi-grid{display:grid;gap:20px;grid-template-columns:1fr}
-  @media(min-width:820px){.testi-grid{grid-template-columns:repeat(3,1fr)}}
-  .testi-card{
-    background:#fff;border-radius:16px;padding:30px;border:1px solid var(--line);
-    display:flex;flex-direction:column;gap:16px;
+  .testi-layout{display:grid;gap:22px;grid-template-columns:1fr}
+  @media(min-width:860px){.testi-layout{grid-template-columns:1.2fr 1fr;gap:40px;align-items:stretch}}
+  .testi-feature{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:44px;
+    display:flex;flex-direction:column;justify-content:center;
   }
-  .stars{color:var(--gold);letter-spacing:3px;font-size:14px}
-  .testi-card p{color:var(--ink);font-size:.98rem;flex:1}
+  .testi-feature .quote-ico{width:32px;height:32px;color:var(--gold-light);margin-bottom:18px}
+  .testi-feature blockquote{
+    font-family:var(--serif);font-size:1.55rem;font-style:italic;line-height:1.4;
+    color:var(--ink);margin-bottom:22px;
+  }
+  .testi-feature figcaption{font-size:13.5px;color:var(--muted)}
+  .testi-feature figcaption strong{color:var(--ink);font-weight:500;display:block;font-family:var(--sans);font-size:14.5px}
+  .testi-side{display:flex;flex-direction:column;gap:20px}
+  .testi-mini{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;flex:1}
+  .testi-mini p{color:var(--ink);font-size:.95rem;margin-bottom:16px}
   .testi-who{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
-  .testi-who strong{color:var(--ink);font-weight:500;display:block}
+  .testi-who strong{color:var(--ink);font-weight:500;display:block;font-family:var(--sans)}
 
   /* --- FAQ --- */
   .faq-list{max-width:760px;margin:0 auto;border-top:1px solid var(--line)}
@@ -231,6 +264,7 @@
   .final p{color:rgba(255,255,255,.86);max-width:50ch;margin:0 auto 34px}
   .final .btn{background:#fff;color:var(--espresso);box-shadow:0 14px 40px -16px rgba(0,0,0,.5)}
   .final .btn:hover{background:var(--sand)}
+  .final-note{margin:18px auto 0;font-size:13.5px;color:rgba(255,255,255,.86);max-width:40ch}
 
   /* --- rodapé --- */
   footer{background:var(--espresso);color:rgba(246,241,234,.6);padding:56px 0 40px;font-size:14px;border-top:1px solid rgba(246,241,234,.1)}
@@ -293,9 +327,8 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap hero-inner">
-      <p class="eyebrow">Estética avançada · Maceió — AL</p>
       <h1>Cuidar de você<br>pode ser <em>mais leve</em><br>do que já foi.</h1>
-      <p>Na Corpelle Espaço Fit, cada protocolo começa com uma avaliação individual — não com uma promessa pronta. Tecnologia, técnica e acompanhamento profissional, no seu ritmo.</p>
+      <p>Sua avaliação começa com uma escuta de verdade, sem pacote pronto e sem promessa fechada. Só um protocolo pensado pra você, com alguém acompanhando de perto em cada etapa.</p>
       <div class="hero-cta">
         <a class="btn" href="https://wa.me/5582994155515?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20na%20Corpelle." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2"/></svg>
@@ -304,28 +337,39 @@
         <a class="btn btn--ghost" href="#metodo">Ver como funciona</a>
       </div>
       <div class="hero-trust">
-        <span>Avaliação individual antes de qualquer protocolo</span>
-        <span>Atendimento no bairro Antares</span>
-        <span>Acompanhamento profissional</span>
+        <span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6"/></svg>Avaliação individual antes de qualquer protocolo</span>
+        <span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6"/></svg>Atendimento presencial no bairro Antares, Maceió</span>
+        <span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6"/></svg>Acompanhamento profissional em cada etapa</span>
       </div>
     </div>
   </section>
 
   <!-- DOR -->
   <section class="pain">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Se você se reconhece aqui</p>
+    <div class="wrap pain-layout">
+      <div class="pain-lead reveal">
         <h2>O problema nunca foi falta de esforço.</h2>
-        <p class="lead">Foi falta de um plano feito para o seu corpo, com alguém acompanhando de perto.</p>
+        <p class="lead">Foi falta de um plano feito pro seu corpo, com alguém acompanhando de perto — não mais um pacote genérico pra tentar sozinha.</p>
+        <p class="pain-note">Aqui a gente começa <em>ouvindo você</em> — só depois monta o protocolo.</p>
       </div>
-      <div class="pain-grid">
-        <div class="pain-item reveal"><span class="x">✕</span><div><strong>Dieta atrás de dieta</strong><p>Começa animada, segura por umas semanas, e volta tudo.</p></div></div>
-        <div class="pain-item reveal"><span class="x">✕</span><div><strong>Treino que não cabe na rotina</strong><p>O plano existe. O tempo e a energia, não.</p></div></div>
-        <div class="pain-item reveal"><span class="x">✕</span><div><strong>Fórmulas milagrosas</strong><p>Promessa grande, resultado nenhum e a frustração de sempre.</p></div></div>
-        <div class="pain-item reveal"><span class="x">✕</span><div><strong>Evitar espelho e foto</strong><p>O incômodo deixa de ser só estético e passa a ser diário.</p></div></div>
-      </div>
-      <p class="pain-close reveal">Aqui a gente começa <em>ouvindo você</em> — depois monta o protocolo.</p>
+      <ul class="pain-list reveal">
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <div><strong>Dieta atrás de dieta</strong><p>Começa animada, segura por umas semanas, e volta tudo.</p></div>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <div><strong>Treino que não cabe na rotina</strong><p>O plano existe. O tempo e a energia, não.</p></div>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <div><strong>Fórmulas milagrosas</strong><p>Promessa grande, resultado nenhum e a frustração de sempre.</p></div>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <div><strong>Evitar espelho e foto</strong><p>O incômodo deixa de ser só estético e passa a ser diário.</p></div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -333,16 +377,15 @@
   <section id="metodo">
     <div class="wrap">
       <div class="section-head center reveal">
-        <p class="eyebrow">Como funciona</p>
         <h2>Quatro etapas, nenhuma etapa pulada.</h2>
-        <p class="lead" style="margin:0 auto">Um caminho claro, do primeiro contato ao acompanhamento — para você saber exatamente onde está pisando.</p>
+        <p class="lead" style="margin:0 auto">Um caminho claro, do primeiro contato ao acompanhamento — pra você saber exatamente onde está pisando.</p>
       </div>
-      <div class="steps">
-        <div class="step reveal"><span class="step-n">01</span><h3>Avaliação</h3><p>Conversa e análise individual para entender seu objetivo, sua rotina e o que já tentou antes.</p></div>
-        <div class="step reveal"><span class="step-n">02</span><h3>Protocolo sob medida</h3><p>Combinação de técnicas e tecnologias escolhida para o seu caso — nada de pacote genérico.</p></div>
-        <div class="step reveal"><span class="step-n">03</span><h3>Sessões</h3><p>Atendimento em ambiente reservado e acolhedor, com profissional acompanhando cada etapa.</p></div>
-        <div class="step reveal"><span class="step-n">04</span><h3>Acompanhamento</h3><p>Reavaliação ao longo do processo para ajustar o que for preciso e manter o que funciona.</p></div>
-      </div>
+      <ol class="steps">
+        <li class="step reveal"><span class="step-n">01</span><h3>Avaliação</h3><p>Conversa e análise individual para entender seu objetivo, sua rotina e o que já tentou antes.</p></li>
+        <li class="step reveal"><span class="step-n">02</span><h3>Protocolo sob medida</h3><p>Combinação de técnicas e tecnologias escolhida para o seu caso — nada de pacote genérico.</p></li>
+        <li class="step reveal"><span class="step-n">03</span><h3>Sessões</h3><p>Atendimento em ambiente reservado e acolhedor, com profissional acompanhando cada etapa.</p></li>
+        <li class="step reveal"><span class="step-n">04</span><h3>Acompanhamento</h3><p>Reavaliação ao longo do processo para ajustar o que for preciso e manter o que funciona.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -350,8 +393,7 @@
   <section id="servicos" class="services">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Tratamentos</p>
-        <h2>O que fazemos na Corpelle</h2>
+        <h2>Tratamentos escolhidos pra você, não pra todo mundo.</h2>
         <p class="lead">Cada tratamento pode ser feito de forma isolada ou combinado dentro de um protocolo — isso é definido na avaliação.</p>
       </div>
       <div class="svc-grid">
@@ -370,12 +412,15 @@
           <p>Protocolo específico para telangiectasias — aquelas veias finas e visíveis nas pernas — com avaliação prévia.</p>
           <ul><li>Telangiectasias</li><li>Pernas</li><li>Uniformidade</li></ul>
         </article>
-        <article class="svc reveal">
-          <h3>Programa Fit — 4 semanas</h3>
-          <p>Ciclo de acompanhamento contínuo que combina sessões, orientação e reavaliação periódica ao longo de um mês.</p>
-          <ul><li>Acompanhamento</li><li>Protocolo combinado</li><li>Reavaliação</li></ul>
-        </article>
       </div>
+      <article class="svc svc--feature reveal">
+        <div>
+          <span class="svc-tag">Para quem quer constância</span>
+          <h3>Programa Fit — 4 semanas</h3>
+          <p>Ciclo de acompanhamento contínuo que combina sessões, orientação e reavaliação periódica ao longo de um mês. Pensado pra quem quer resultado com rotina, não com sessão avulsa.</p>
+        </div>
+        <ul><li>Acompanhamento semanal</li><li>Protocolo combinado</li><li>Reavaliação periódica</li></ul>
+      </article>
     </div>
   </section>
 
@@ -387,9 +432,13 @@
         <span>[ Foto da Marina<br>ou do espaço ]</span>
       </div>
       <div class="reveal">
-        <p class="eyebrow">Quem cuida de você</p>
-        <h2>Marina Viana Andrade</h2>
-        <blockquote>“Autoestima não se conquista com promessa. Se conquista com cuidado, técnica e alguém do seu lado.”</blockquote>
+        <h2>Quem cuida de você</h2>
+        <p class="about-name">Marina Viana Andrade</p>
+        <svg class="ico quote-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 8c-2 0-3.5 1.6-3.5 4v4h4v-4H5.2C5.2 10.5 6 9.4 7.4 9.2L7 8Z"/>
+          <path d="M16 8c-2 0-3.5 1.6-3.5 4v4h4v-4h-2.3c0-1.5.8-2.6 2.2-2.8L16 8Z"/>
+        </svg>
+        <blockquote>Autoestima não se conquista com promessa. Se conquista com cuidado, técnica e alguém do seu lado.</blockquote>
         <p>À frente da Corpelle Espaço Fit, Marina atende em Maceió com foco em estética avançada e acompanhamento de emagrecimento — sempre partindo de uma avaliação individual antes de indicar qualquer protocolo.</p>
         <ul class="creds">
           <!-- SUBSTITUIR pelos dados reais: formação, registro no conselho, anos de atuação, especializações -->
@@ -406,26 +455,28 @@
   <section class="testi">
     <div class="wrap">
       <div class="section-head center reveal">
-        <p class="eyebrow">Feedback de quem já passou por aqui</p>
         <h2>O que as clientes dizem</h2>
       </div>
-      <div class="testi-grid">
-        <!-- FICTÍCIO — placeholder só para visualização do layout. SUBSTITUIR pelos depoimentos reais do destaque "Feedback Cliente" (com autorização da cliente) antes de sair do modo prévia -->
-        <article class="testi-card reveal">
-          <div class="stars">★★★★★</div>
-          <p>Cheguei bem insegura na primeira avaliação e a Marina me deixou à vontade desde o início. Sinto que finalmente tenho alguém acompanhando de perto, não só um pacote de sessões.</p>
-          <div class="testi-who"><strong>Camila R.</strong>Massagem modeladora</div>
-        </article>
-        <article class="testi-card reveal">
-          <div class="stars">★★★★★</div>
-          <p>O que mais gostei foi não ter recebido uma promessa mirabolante. Me explicaram exatamente o que o tratamento faz e o que não faz, e isso me deu muito mais confiança pra continuar.</p>
-          <div class="testi-who"><strong>Juliana M.</strong>Ozonioterapia</div>
-        </article>
-        <article class="testi-card reveal">
-          <div class="stars">★★★★★</div>
-          <p>Ambiente tranquilo, atendimento no horário e equipe atenciosa em cada retorno. Me sinto à vontade pra tirar qualquer dúvida antes das sessões.</p>
-          <div class="testi-who"><strong>Fernanda A.</strong>Programa Fit — 4 semanas</div>
-        </article>
+      <!-- FICTÍCIO — placeholder só para visualização do layout. SUBSTITUIR pelos depoimentos reais do destaque "Feedback Cliente" (com autorização da cliente) antes de sair do modo prévia -->
+      <div class="testi-layout">
+        <figure class="testi-feature reveal">
+          <svg class="ico quote-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 8c-2 0-3.5 1.6-3.5 4v4h4v-4H5.2C5.2 10.5 6 9.4 7.4 9.2L7 8Z"/>
+            <path d="M16 8c-2 0-3.5 1.6-3.5 4v4h4v-4h-2.3c0-1.5.8-2.6 2.2-2.8L16 8Z"/>
+          </svg>
+          <blockquote>Cheguei bem insegura na primeira avaliação e a Marina me deixou à vontade desde o início. Sinto que finalmente tenho alguém acompanhando de perto, não só um pacote de sessões.</blockquote>
+          <figcaption><strong>Camila R.</strong>Massagem modeladora</figcaption>
+        </figure>
+        <div class="testi-side">
+          <article class="testi-mini reveal">
+            <p>O que mais gostei foi não ter recebido uma promessa mirabolante. Me explicaram exatamente o que o tratamento faz e o que não faz, e isso me deu muito mais confiança pra continuar.</p>
+            <div class="testi-who"><strong>Juliana M.</strong>Ozonioterapia</div>
+          </article>
+          <article class="testi-mini reveal">
+            <p>Ambiente tranquilo, atendimento no horário e equipe atenciosa em cada retorno. Me sinto à vontade pra tirar qualquer dúvida antes das sessões.</p>
+            <div class="testi-who"><strong>Fernanda A.</strong>Programa Fit — 4 semanas</div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -434,8 +485,7 @@
   <section>
     <div class="wrap">
       <div class="section-head center reveal">
-        <p class="eyebrow">Perguntas frequentes</p>
-        <h2>Antes de agendar</h2>
+        <h2>Perguntas antes de agendar</h2>
       </div>
       <div class="faq-list reveal">
         <details open>
@@ -445,6 +495,10 @@
         <details>
           <summary>Em quanto tempo eu vejo diferença?</summary>
           <p>Depende do tratamento, do seu organismo e da constância. Não trabalhamos com prazo garantido: o que fazemos é reavaliar ao longo do processo e ajustar o protocolo. Resultados variam de pessoa para pessoa.</p>
+        </details>
+        <details>
+          <summary>Vou sair da avaliação pressionada a fechar pacote?</summary>
+          <p>Não. Na avaliação você recebe o diagnóstico e as opções de protocolo; decidir se, quando e como seguir é sempre seu. Não trabalhamos com fechamento forçado no primeiro contato.</p>
         </details>
         <details>
           <summary>Quanto custa?</summary>
@@ -466,7 +520,6 @@
   <section id="local" class="local">
     <div class="wrap local-grid">
       <div class="reveal">
-        <p class="eyebrow">Onde estamos</p>
         <h2>Antares, Maceió</h2>
         <dl>
           <div><dt>Endereço</dt><dd>Rua Maria Ramos de Lima, 153b — Antares<br>Maceió — AL</dd></div>
@@ -495,6 +548,7 @@
         <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2"/></svg>
         Falar no WhatsApp
       </a>
+      <p class="final-note">Resposta rápida pelo WhatsApp e sem compromisso: você decide o próximo passo.</p>
     </div>
   </section>
 
